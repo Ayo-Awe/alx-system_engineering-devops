@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# This script displays "Best School" 10 times
+
+i=0
+while [ $i -lt 10 ]; do
+	# Display best school
+	echo "Best School"
+
+	# Display "Hi" on the 9th time
+	if [ $i -eq 8 ]; then
+		echo "Hi"
+	fi
+
+	# Increment i
+	i=$((i + 1))
+done
