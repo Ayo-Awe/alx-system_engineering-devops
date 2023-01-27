@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# This script displays all lines that have bash in them
+
+pgrep -l "bash"
+
