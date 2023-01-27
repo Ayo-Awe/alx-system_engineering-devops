@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# This script kills the to inifinity and beyond process
+
+pkill --signal 9 -f ./7-highlander
+
