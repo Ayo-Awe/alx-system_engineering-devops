@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This bash script shows all attached ips
+
+ifconfig | grep "inet " | cut -d " " -f 10
