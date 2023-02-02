@@ -3,5 +3,5 @@
 
 facebook="$(echo -e '8.8.8.8	facebook.com')"
 localhost="$(echo -e '127.0.0.2\tlocalhost')"
-sed -i s/^.*facebook.com$/"$facebook"/ hosts
+sed -i s/^.*facebook.com$/"$facebook"/ "/etc/hosts"
 sed -i s/^.*"$(printf '\t')"localhost$/"$localhost"/ "/etc/hosts"
