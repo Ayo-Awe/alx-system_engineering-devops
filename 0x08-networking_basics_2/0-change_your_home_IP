@@ -4,7 +4,6 @@
 facebook="$(echo -e '8.8.8.8\t\tfacebook.com')"
 localhost="$(echo -e '127.0.0.2\tlocalhost')"
 cp /etc/hosts ~/hosts.new
-sed -i s/^.*facebook.com$/"$facebook"/ ~/hosts.new
+sed -i s/^.*"$(printf '\t')"facebook.com$/"$facebook"/ ~/hosts.new
 sed -i s/^.*"$(printf '\t')"localhost$/"$localhost"/ ~/hosts.new
 cp -f ~/hosts.new /etc/hosts
-
