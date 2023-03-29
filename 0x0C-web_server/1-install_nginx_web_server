@@ -4,12 +4,5 @@
 apt-get -y update
 apt-get -y install nginx
 mkdir -p /var/www/html
-chown -R "$USER":"$USER"  /var/www/html/
 echo "Hello World!" > /var/www/html/index.html
-
-if [[ $(pgrep nginx) ]]
-then
-	sudo service nginx restart
-else
-	sudo service nginx start
-fi
+sudo service nginx restart
