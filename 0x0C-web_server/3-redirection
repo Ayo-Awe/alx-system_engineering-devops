@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Configure redirection in nginx
+
+new_lines="server_name _;\n\n\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}"
+# sed -i s//"$new_lines"/ test
+sed -i "s~server_name _;~$new_lines~" /etc/nginx/sites-enabled/default
+/etc/init.d/nginx restart
