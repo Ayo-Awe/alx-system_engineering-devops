@@ -3,8 +3,12 @@
 
 
 sudo apt-get -y install nginx
-sudo service nginx start
 sudo chown -R "$USER":"$USER"  /var/www/html/
 echo "Hello World!" > /var/www/html/index.html
-sudo service nginx restart
 
+if [[ $(pgrep nginx) ]]
+then
+	sudo service nginx restart
+else
+	sudo service nginx start
+fi
