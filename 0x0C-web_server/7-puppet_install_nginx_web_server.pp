@@ -1,23 +1,23 @@
 # install and configure nginx on an ubuntu server
 
 package { 'nginx':
-  ensure => installed,
+  ensure   => installed,
   provider => 'apt'
 }
 
 file { '/var/www/html/':
-  ensure => "directory",
+  ensure => 'directory',
   before => Service['nginx']
 }
 
 file { '/var/www/html/index.html':
-  ensure => "file",
-  content => "Hello World!",
+  ensure  => 'file',
+  content => 'Hello World!',
   require => File['/var/www/html/']
 }
 
 file { '/etc/nginx/sites-enabled/default':
-  ensure => "file",
+  ensure  => 'file',
   content => 'server {
         listen 80 default_server;
         listen [::]:80 default_server;
@@ -37,11 +37,11 @@ file { '/etc/nginx/sites-enabled/default':
         }
   }',
   require => Package['nginx'],
-  before => Service['nginx']
+  before  => Service['nginx']
 
 }
 
 service { 'nginx':
-  ensure => 'running',
+  ensure  => 'running',
   require => Package['nginx']
 }
