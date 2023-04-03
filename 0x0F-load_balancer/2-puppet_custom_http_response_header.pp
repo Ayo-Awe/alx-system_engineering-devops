@@ -10,6 +10,12 @@ file { '/var/www/html/':
   before => Service['nginx']
 }
 
+file { '/var/www/html/index.html':
+  ensure  => 'file',
+  content => 'Hello World!',
+  require => File['/var/www/html/']
+}
+
 file { '/etc/nginx/sites-enabled/default':
   ensure  => 'file',
   content => 'server {
@@ -22,6 +28,10 @@ file { '/etc/nginx/sites-enabled/default':
 
         server_name _;
         add_header X-Served-By $hostname always;
+
+        location /redirect_me {
+                return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+        }
 
         location / {
                 try_files $uri $uri/ =404;
