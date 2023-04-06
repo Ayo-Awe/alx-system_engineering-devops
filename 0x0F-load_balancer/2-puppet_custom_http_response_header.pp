@@ -27,7 +27,7 @@ file { '/etc/nginx/sites-enabled/default':
         index index.html index.htm index.nginx-debian.html;
 
         server_name _;
-        add_header X-Served-By $hostname always;
+        add_header X-Served-By $hostname;
 
         location /redirect_me {
                 return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
