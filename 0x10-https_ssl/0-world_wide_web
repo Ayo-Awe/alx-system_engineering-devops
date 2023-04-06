@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Displays information about the subdomains
+
+default_subdomains=(www lb-01 web-01 web-02)
+
+print_subdomain_info(){
+	full_path="$2.$1"
+	data=$(dig "$full_path" | grep -i -A 1 'answer section:' | awk '/IN/ {print $4 " record and points to " $5}')
+	echo "The subdomain $2 is a $data"
+}
+
+#if no subdomain call get info on all subdomains
+if [ $# -lt 2 ]; then
+	for i in "${default_subdomains[@]}"; do
+		print_subdomain_info "$1" "$i";
+	done
+else
+#else call get info on single subdomain
+	print_subdomain_info "$1" "$2";
+fi
