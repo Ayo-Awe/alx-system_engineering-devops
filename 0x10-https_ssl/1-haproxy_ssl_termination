@@ -1,0 +1,7 @@
+frontend http_fe
+        bind *:443 ssl crt /etc/haproxy/certs/www.ayoawe.tech.pem
+        default_backend my_servers
+backend my_servers
+        balance roundrobin
+        server 136397-web-01 54.234.93.141:80 check
+        server 136397-web-02 34.207.154.98:80 check
