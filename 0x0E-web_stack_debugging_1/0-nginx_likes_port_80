@@ -2,5 +2,4 @@
 # Fix ngingx not running on port 8080 error
 
 sed -i "s/8080/80/g" /etc/nginx/sites-enabled/default
-sed -i "s/ipv6only=on//g" /etc/nginx/sites-enabled/default
 service nginx reload
