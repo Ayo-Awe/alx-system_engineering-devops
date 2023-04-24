@@ -27,7 +27,7 @@ def export_as_csv(user_data):
     """
     employee_id = sys.argv[1]
     with open("{}.csv".format(employee_id), mode="w", newline="") as csvFile:
-        fieldnames = ["id", "username", "completed", "title"]
+        fieldnames = ["userId", "username", "completed", "title"]
         writer = csv.DictWriter(
             csvFile, fieldnames=fieldnames, extrasaction="ignore",
             quoting=csv.QUOTE_ALL)
