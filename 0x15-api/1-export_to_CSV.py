@@ -2,7 +2,8 @@
 """This is a python script to fetch data from
 an API and display the data formatted. This
 script takes in exactly one argument, which is the
-id of the user to be fetched
+id of the user to be fetched. It exports the data
+as a csv
 """
 import csv
 import requests
@@ -34,7 +35,8 @@ def export_as_csv(user_data):
         todos = user_data.get("todos")
         username = user_data.get("user").get("username")
         for todo in todos:
-            writer.writerow({**todo, "username": username},)
+            todo["username"] = username
+            writer.writerow(todo)
 
 
 if __name__ == "__main__":
