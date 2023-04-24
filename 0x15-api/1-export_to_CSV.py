@@ -28,7 +28,8 @@ def export_as_csv(user_data):
     with open("{}.csv".format(employee_id), mode="w", newline="") as csvFile:
         fieldnames = ["id", "username", "completed", "title"]
         writer = csv.DictWriter(
-            csvFile, fieldnames=fieldnames, extrasaction="ignore", quoting=csv.QUOTE_ALL)
+            csvFile, fieldnames=fieldnames, extrasaction="ignore",
+            quoting=csv.QUOTE_ALL)
 
         todos = user_data.get("todos")
         username = user_data.get("user").get("username")
