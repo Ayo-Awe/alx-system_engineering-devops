@@ -4,8 +4,8 @@ an API and display the data formatted. This
 script takes in exactly one argument, which is the
 id of the user to be fetched
 """
-import sys
 import requests
+import sys
 
 
 def fetch_todos():
