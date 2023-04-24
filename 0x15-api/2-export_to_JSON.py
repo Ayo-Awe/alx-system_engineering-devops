@@ -29,9 +29,11 @@ def export_as_json(user_data):
     todos = user_data.get("todos")
     user = user_data.get("user")
     tasks = list(map(lambda x: {"username": user.get(
-        "username"), "task": x.get("title"), "completed": x.get("completed")}, todos))
+        "username"), "task": x.get("title"),
+        "completed": x.get("completed")}, todos))
 
-    with open("{}.json".format(employee_id), mode="w", newline="") as json_file:
+    with open("{}.json".format(employee_id), mode="w",
+              newline="")as json_file:
         payload = {user.get("id"): tasks}
         json.dump(payload, json_file)
 
