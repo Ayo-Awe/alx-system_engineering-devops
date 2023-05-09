@@ -13,7 +13,8 @@ def number_of_subscribers(subreddit):
 
     url = reddit_url.format(subreddit)
     response = requests.get(
-        url, headers={"User-Agent": "hello mehowin my room"}, allow_redirects=False)
+        url, headers={"User-Agent": "hello mehowin my room"},
+        allow_redirects=False)
 
     if response.status_code != 200:
         return 0
